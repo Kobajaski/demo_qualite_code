@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
+uvicorn = "*"
+faker = "*"
 
 [dev-packages]
 ipython = "*"
@@ -12,6 +14,14 @@ flake8 = "*"
 bandit = "*"
 coverage = "*"
 pre-commit = "*"
+tox = "*"
+tox-pyenv = "*"
+pytest = "*"
+pytest-cov = "*"
+isort = "*"
+sphinx = "*"
+black = "*"
+mypy = "*"
 
-[requires]
-python_version = "3.9"
+[pipenv]
+allow_prereleases = true
