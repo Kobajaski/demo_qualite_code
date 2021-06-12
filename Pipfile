@@ -22,6 +22,9 @@ isort = "*"
 sphinx = "*"
 black = "*"
 mypy = "*"
+xenon = "*"
+pip = "*"
+tutoapi = {editable = true, path = "."}
 
 [pipenv]
 allow_prereleases = true

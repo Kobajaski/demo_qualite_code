@@ -25,11 +25,16 @@ lint:
 	@tox -e black
 	@tox -e flake8
 	@tox -e mypy
+	@tox -e xenon
 
 .PHONY: security
 security:
 	@tox -e bandit
 	@tox -e safety
+
+.PHONY: check-update
+check:
+	@tox -e check-update
 
 .PHONY: docs
 docs:
