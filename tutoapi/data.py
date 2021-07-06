@@ -28,6 +28,9 @@ FIELDS = [
 ]
 
 DATA = {
-    id_number: Item(id=id_number, **{method_name: getattr(fake, method_name, lambda: None)() for method_name in FIELDS})
+    id_number: Item(
+        id=id_number,
+        **{method_name: getattr(fake, method_name, lambda: None)() for method_name in FIELDS}
+    )
     for id_number in range(fake.randomize_nb_elements(50))
 }

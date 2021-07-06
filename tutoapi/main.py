@@ -43,7 +43,11 @@ def filtering(dict_data: Dict, filters: Optional[str]):
     :rtype: dict
     """
 
-    return {key: value for key, value in dict_data.items() if not filters or key in filters or key == "id"}
+    return {
+        key: value
+        for key, value in dict_data.items()
+        if not filters or key in filters or key == "id"
+    }
 
 
 @app.post("/items/append")
@@ -81,8 +85,16 @@ def read_list(filters: Optional[str] = ""):
     :type filters: str
     :rtype: list
     """
-
-    return list(map(lambda x: filtering(x, filters), map(Item.dict, DATA.values())))
+    s = []
+    for data in DATA.values():
+        d = Item.dict(data)
+        m = {}
+        for key, value in d.items():
+            if not filters or key in filters or key == "id":
+                m[key] = value
+        s.append(m)
+    return s
+    # return [filtering(Item.dict(data), filters) for data in DATA.values()]
 
 
 @app.get("/items/{item_id}")

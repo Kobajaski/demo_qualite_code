@@ -9,7 +9,7 @@ build:
 
 .PHONY: run
 run:
-	@tutoapi $(OPTIONS)
+	@tutoapi -u 0.0.0.0 -p 5000
 
 .PHONY: tox
 tox:
@@ -52,3 +52,7 @@ clean:
 	@rm -f .coverage*
 	@rm -rf .tox
 	@rm -rf .mypy_cache
+
+.PHONY: request
+request:
+	@curl localhost:5000/$(ROUTE) | python -m json.tool
